@@ -26,13 +26,13 @@ if __name__ == '__main__':
     answer = langchain.sql_chain_run(sqlchain)
 
     # add [] and remove \n to convert output in JSON format
-    parsed_json = util.json_parser(answer)
+    #parsed_json = util.json_parser(answer)
 
     # load model gpt3.5 for pandasai
     llm_p_o = llm_p.llm_p_load()
 
     # convert json to dataframe
-    df = plot.json_load(parsed_json)
+    df = plot.json_load(answer)
 
     # generate pandasai instance
     apndasai = plot.pandasai_instance_load(llm_p_o)
